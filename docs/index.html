@@ -137,13 +137,17 @@
 		</div>
 	</div>
 	<!-- End ai2html - 2021-08-11 11:59 -->
+	<!-- PYM JS (Prueba Wordpress) -->
+	<script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
 	<script type="text/javascript">
 		(function() {
 			// only want one resizer on the page
 			if (document.documentElement.className.indexOf("g-resizer-v3-init") > -1) return;
 			document.documentElement.className += " g-resizer-v3-init";
+
 			// require IE9+
 			if (!("querySelector" in document)) return;
+			
 			function resizer() {
 				var elements = Array.prototype.slice.call(document.querySelectorAll(".g-artboard[data-min-width]")),
 					widthById = {};
@@ -160,18 +164,7 @@
 						el.style.display = "none";
 					}
 				});
-				// try {
-				// 	if (window.parent && window.parent.$) {
-				// 		window.parent.$("body").trigger("resizedcontent", [window]);
-				// 	}
-				// 	if (window.require) {
-				// 		require(['foundation/main'], function() {
-				// 			require(['shared/interactive/instances/app-communicator'], function(AppCommunicator) {
-				// 				AppCommunicator.triggerResize();
-				// 			});
-				// 		});
-				// 	}
-				// } catch(e) { console.log(e); }
+				pymChild.sendHeight();
 			}
 
 			document.addEventListener('DOMContentLoaded', resizer);
@@ -204,7 +197,9 @@
 					}
 					return result;
 				};
-			}	   
+			}
+
+			var pymChild = new pym.Child();	   
 		})();
 	</script>
 	<script>
@@ -215,10 +210,9 @@
 			});
 		}
 	</script>
-	<!-- PYM JS (Prueba Wordpress) -->
-	<script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
+	
 	<script>
-		var pymChild = new pym.Child();
+		
 	</script>
 </body>
 </html>
